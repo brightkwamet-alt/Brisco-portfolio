@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News - Brisco Media | Ghana News | Takoradi</title>
+    <meta name="description" content="Latest news from Brisco Media – Ghana news, Accra, Takoradi. Politics, crime, and trending stories. Stay sharp, stay informed.">
+    <meta name="keywords" content="Ghana news, Brisco Media news, Takoradi news, Ghana headlines, Accra news">
+    <link rel="canonical" href="https://briscomedia.com/news.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="News - Brisco Media | Ghana News">
+    <meta property="og:description" content="Latest news from Ghana. Brisco Media – stay sharp, stay informed.">
+    <meta property="og:url" content="https://briscomedia.com/news.html">
+    <meta property="og:site_name" content="Brisco Media">
+    <meta property="og:image" content="https://briscomedia.com/images/file_00000000142c71f8aa78889ea8dfe3db~2.png">
+    <meta property="og:locale" content="en_GH">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="News - Brisco Media | Ghana News">
+    <meta name="twitter:description" content="Latest news from Ghana. Brisco Media – stay sharp, stay informed.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1 class="main-title">Brisco Media</h1>
+    <p>Stay Sharp. Stay Informed.</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="gallery.html">Art Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="news-grid">
+    <div class="news-card">
+        <img src="images/file_000000006c4071f5ac0c28b7d7087e54.png" alt="Mahama News" class="modal-img">
+        <h3 id="story-1">President Mahama Promises Economic Recovery</h3>
+        <p>Government outlines new policies to strengthen Ghana's economy.</p>
+    </div>
+    <div class="news-card">
+        <img src="images/file_000000001f0871f8a24b5d6e5b122957.png" alt="Mob Attack" class="modal-img">
+        <h3 id="story-2">Three Arrested Over Mob Attack</h3>
+        <p>Police confirm arrest of suspects involved in fatal assault case in Accra.</p>
+    </div>
+    <div class="news-card">
+        <img src="images/file_00000000e8a87243afdf1e675b5f9376.png" alt="Cartel News" class="modal-img">
+        <h3>New Cartel Leader Arises in Mexico</h3>
+        <p>Authorities confirm previous cartel leader has been arrested and killed.</p>
+    </div>
+    <div class="news-card">
+        <img src="images/file_000000000198720a89ad08e8887a05cf.png" alt="Proposal Story" class="modal-img">
+        <h3>Childhood Proposal Takes 7 Years</h3>
+        <p>A man discovers his childhood crush is now engaged to his best friend after waiting seven years.</p>
+    </div>
+    <div class="news-card">
+        <img src="images/file_00000000b2207243b45b1b49b6766604.png" alt="Robbery & Murder" class="modal-img">
+        <h3>Armed Robbery Ends in Tragedy</h3>
+        <p>An armed robber discovers the victim is his wife and reports himself to the police immediately.</p>
+    </div>
+    <div class="news-card">
+        <img src="images/file_00000000871c72439fa23f53d1cbf49c.png" alt="Funny Incident" class="modal-img">
+        <h3>Funny Incident Leaves Residents in Stitches</h3>
+        <p>A hilarious incident during a local event leaves everyone laughing uncontrollably.</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Brisco Media | Takoradi, Ghana &nbsp;·&nbsp; <a href="add-content.html" style="color: var(--accent);">Add content</a></p>
+</footer>
+
+<div id="imageModal" class="modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <img id="modalImage" src="" alt="Full Size">
+    </div>
+</div>
+
+<script>
+function openModal(imgSrc) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = imgSrc;
+    modal.classList.add('active');
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('active');
+}
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal-img')) {
+        openModal(e.target.src);
+    }
+});
+
+const modal = document.getElementById('imageModal');
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+}
+
+const closeBtn = document.querySelector('.modal-close');
+if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+});
+</script>
+
+</body>
+</html>

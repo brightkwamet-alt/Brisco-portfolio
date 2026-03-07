@@ -1,0 +1,44 @@
+[
+  {
+    "id": "story-1",
+    "title": "President Mahama Promises Economic Recovery",
+    "description": "Government outlines new policies to strengthen Ghana's economy.",
+    "image": "images/file_000000006c4071f5ac0c28b7d7087e54.png",
+    "alt": "Mahama News"
+  },
+  {
+    "id": "story-2",
+    "title": "Three Arrested Over Mob Attack",
+    "description": "Police confirm arrest of suspects involved in fatal assault case in Accra.",
+    "image": "images/file_000000001f0871f8a24b5d6e5b122957.png",
+    "alt": "Mob Attack"
+  },
+  {
+    "id": "story-3",
+    "title": "New Cartel Leader Arises in Mexico",
+    "description": "Authorities confirm previous cartel leader has been arrested and killed.",
+    "image": "images/file_00000000e8a87243afdf1e675b5f9376.png",
+    "alt": "Cartel News"
+  },
+  {
+    "id": "story-4",
+    "title": "Childhood Proposal Takes 7 Years",
+    "description": "A man discovers his childhood crush is now engaged to his best friend after waiting seven years.",
+    "image": "images/file_000000000198720a89ad08e8887a05cf.png",
+    "alt": "Proposal Story"
+  },
+  {
+    "id": "story-5",
+    "title": "Armed Robbery Ends in Tragedy",
+    "description": "An armed robber discovers the victim is his wife and reports himself to the police immediately.",
+    "image": "images/file_00000000b2207243b45b1b49b6766604.png",
+    "alt": "Robbery & Murder"
+  },
+  {
+    "id": "story-6",
+    "title": "Funny Incident Leaves Residents in Stitches",
+    "description": "A hilarious incident during a local event leaves everyone laughing uncontrollably.",
+    "image": "images/file_00000000871c72439fa23f53d1cbf49c.png",
+    "alt": "Funny Incident"
+  }
+]

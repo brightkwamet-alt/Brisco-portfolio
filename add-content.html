@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add News &amp; Artwork - Brisco Media</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .add-content-page .content { max-width: 640px; }
+        .add-content-page h2 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        .add-content-page h2:first-of-type { margin-top: 0; }
+        .add-content-page .form-group { margin-bottom: 1rem; }
+        .add-content-page label { display: block; margin-bottom: 0.25rem; color: var(--text-soft); font-size: 0.95rem; }
+        .add-content-page input[type="text"],
+        .add-content-page textarea { width: 100%; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-elevated); color: var(--text); font-family: inherit; font-size: 1rem; }
+        .add-content-page textarea { min-height: 80px; resize: vertical; }
+        .add-content-page .btn { display: inline-block; padding: 0.65rem 1.25rem; background: var(--accent); color: var(--bg); border: none; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s; }
+        .add-content-page .btn:hover { background: var(--accent-hover); }
+        .add-content-page .output-box { margin-top: 1rem; padding: 1rem; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; }
+        .add-content-page .output-box pre { margin: 0; white-space: pre-wrap; word-break: break-all; font-size: 0.85rem; color: var(--text-soft); }
+        .add-content-page .output-box textarea { min-height: 120px; font-size: 0.8rem; }
+        .add-content-page .steps { background: rgba(13, 148, 136, 0.1); border: 1px solid var(--accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-soft); }
+        .add-content-page .steps strong { color: var(--text); }
+        .add-content-page .hint { font-size: 0.9rem; color: var(--muted); margin-top: 0.25rem; }
+    </style>
+</head>
+<body class="add-content-page">
+
+<header>
+    <h1 class="main-title">Brisco Media</h1>
+    <p>Stay Sharp. Stay Informed.</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="gallery.html">Art Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="content">
+    <h2>Add news or artwork</h2>
+    <p>Use the forms below to generate the text you need. Then update your site files as described.</p>
+
+    <div class="steps">
+        <strong>Before adding:</strong> Upload your image into the <code>images/</code> folder (e.g. with your hosting file manager or FTP). Then enter the image path below (e.g. <code>images/my-photo.jpg</code>).<br>
+        <strong>How it works:</strong> The form generates HTML you can copy and paste into your pages. For news, paste into <code>news.html</code>. For artwork, paste into <code>gallery.html</code> and optionally <code>index.html</code> (in the art section).
+    </div>
+
+    <!-- Add News -->
+    <h2>Add a news story</h2>
+    <form id="form-news">
+        <div class="form-group">
+            <label for="news-title">Title</label>
+            <input type="text" id="news-title" required placeholder="e.g. New Policy Announced">
+        </div>
+        <div class="form-group">
+            <label for="news-desc">Short description</label>
+            <textarea id="news-desc" required placeholder="One or two sentences about the story."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="news-image">Image path</label>
+            <input type="text" id="news-image" required placeholder="images/your-image.jpg">
+            <p class="hint">Path from the site root, e.g. images/story-photo.png</p>
+        </div>
+        <div class="form-group">
+            <label for="news-id">Story ID (optional)</label>
+            <input type="text" id="news-id" placeholder="e.g. story-7">
+            <p class="hint">Use story-7, story-8, etc. so “Read more” links work from the home page.</p>
+        </div>
+        <button type="submit" class="btn">Generate news entry</button>
+    </form>
+    <div id="news-output" class="output-box" style="display:none;">
+        <p><strong>What to do:</strong></p>
+        <ol style="margin: 0.5rem 0 0.75rem 1.25rem; color: var(--text-soft);">
+            <li>Copy the HTML below.</li>
+            <li>Open <code>news.html</code> in a text editor.</li>
+            <li>Paste it inside the <code>&lt;section class="news-grid"&gt;</code>, before the closing <code>&lt;/section&gt;</code></li>
+            <li>To show it on the home page as Trending, also paste the trending card into <code>index.html</code> inside <code>&lt;div class="trending-grid"&gt;</code>.</li>
+        </ol>
+        <label style="display:block; margin-top: 0.5rem;">News card (paste into news.html):</label>
+        <textarea id="news-html-out" readonly></textarea>
+        <label style="display:block; margin-top: 1rem;">Trending card (optional – paste into index.html):</label>
+        <textarea id="news-trending-out" readonly></textarea>
+    </div>
+
+    <!-- Add Artwork -->
+    <h2>Add artwork</h2>
+    <form id="form-art">
+        <div class="form-group">
+            <label for="art-src">Image path</label>
+            <input type="text" id="art-src" required placeholder="images/my-artwork.jpg">
+        </div>
+        <div class="form-group">
+            <label for="art-alt">Short description (alt text)</label>
+            <input type="text" id="art-alt" placeholder="e.g. Portrait 2025">
+        </div>
+        <button type="submit" class="btn">Generate artwork entry</button>
+    </form>
+    <div id="art-output" class="output-box" style="display:none;">
+        <p><strong>What to do:</strong></p>
+        <ol style="margin: 0.5rem 0 0.75rem 1.25rem; color: var(--text-soft);">
+            <li>Copy the HTML below.</li>
+            <li>Open <code>gallery.html</code> in a text editor.</li>
+            <li>Paste it inside <code>&lt;div class="art-grid"&gt;</code>, before the closing <code>&lt;/div&gt;</code>.</li>
+            <li>To show on the home page, also paste into <code>index.html</code> inside <code>&lt;div class="art-grid"&gt;</code> in the Art section.</li>
+        </ol>
+        <label style="display:block; margin-top: 0.5rem;">Artwork (copy and paste into gallery.html and index.html):</label>
+        <textarea id="art-html-out" readonly></textarea>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Brisco Media | Takoradi, Ghana &nbsp;·&nbsp; <a href="add-content.html" style="color: var(--accent);">Add content</a></p>
+</footer>
+
+<script>
+(function () {
+  function escapeHtml(s) {
+    if (!s) return '';
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function nextNewsId() {
+    var id = document.getElementById('news-id').value.trim();
+    if (id) return id;
+    return 'story-' + (Math.floor(Math.random() * 9000) + 1000);
+  }
+
+  document.getElementById('form-news').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var title = document.getElementById('news-title').value.trim();
+    var description = document.getElementById('news-desc').value.trim();
+    var image = document.getElementById('news-image').value.trim();
+    var id = nextNewsId();
+    var newsCard = '    <div class="news-card">\n        <img src="' + escapeHtml(image) + '" alt="' + escapeHtml(title) + '" class="modal-img">\n        <h3 id="' + escapeHtml(id) + '">' + escapeHtml(title) + '</h3>\n        <p>' + escapeHtml(description) + '</p>\n    </div>';
+    var trendingCard = '        <article class="trending-card">\n            <img src="' + escapeHtml(image) + '" alt="' + escapeHtml(title) + '" class="trending-img modal-img">\n            <div class="trending-content">\n                <h3>' + escapeHtml(title) + '</h3>\n                <p>' + escapeHtml(description) + '</p>\n                <a href="news.html#' + escapeHtml(id) + '">Read More →</a>\n            </div>\n        </article>';
+    document.getElementById('news-html-out').value = newsCard;
+    document.getElementById('news-trending-out').value = trendingCard;
+    document.getElementById('news-output').style.display = 'block';
+  });
+
+  document.getElementById('form-art').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var src = document.getElementById('art-src').value.trim();
+    var alt = document.getElementById('art-alt').value.trim() || 'Art';
+    var img = '        <img src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '" class="modal-img">';
+    document.getElementById('art-html-out').value = img;
+    document.getElementById('art-output').style.display = 'block';
+  });
+})();
+</script>
+
+</body>
+</html>

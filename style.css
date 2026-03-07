@@ -1,0 +1,703 @@
+/* ===== Brisco Media – Elegant Editorial Theme ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+    --bg: #0a0a0b;
+    --bg-elevated: #121214;
+    --text: #f5e6a8;
+    --text-soft: #c9b86c;
+    --accent: #0d9488;
+    --accent-hover: #14b8a6;
+    --muted: #71717a;
+    --border: rgba(245, 230, 168, 0.12);
+    --card-bg: rgba(18, 20, 22, 0.85);
+    --nav-bg: rgba(10, 10, 11, 0.92);
+    --header-start: #0a1628;
+    --header-end: #0e3d5c;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --font-heading: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: 0.25s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* ===== Header ===== */
+header {
+    text-align: center;
+    padding: 4rem 1.5rem 4.5rem;
+    background:
+        linear-gradient(160deg, rgba(10, 22, 40, 0.88) 0%, rgba(14, 61, 92, 0.75) 50%, rgba(0, 0, 0, 0.6) 100%),
+        url('images/file_00000000142c71f8aa78889ea8dfe3db~2.png') center / cover no-repeat;
+    background-attachment: scroll;
+    color: var(--text);
+    position: relative;
+    overflow: hidden;
+}
+
+@media (min-width: 769px) {
+    header {
+        background-attachment: fixed;
+    }
+}
+
+header::before {
+    content: "BRISCO MEDIA";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(245, 230, 168, 0.06);
+    z-index: 0;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--text);
+    position: relative;
+    z-index: 2;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+}
+
+header p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--text-soft);
+    position: relative;
+    z-index: 2;
+    margin: 0;
+}
+
+/* ===== Navigation ===== */
+nav {
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+nav a {
+    color: var(--text-soft);
+    margin: 0 1.25rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+nav a:hover {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+}
+
+/* ===== Mobile: Navigation & touch targets ===== */
+@media (max-width: 768px) {
+    header {
+        padding: 2.5rem 1rem 3rem;
+    }
+
+    nav {
+        padding: 0.75rem 1rem;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 0 0.5rem;
+        padding: 0.75rem 0.5rem;
+        min-height: 44px;
+        min-width: 44px;
+        line-height: 1.2;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem;
+        padding: 0.75rem 0.5rem;
+    }
+
+    nav a {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: 120px;
+        padding: 0.85rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Section titles ===== */
+section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    margin: 0 0 1.75rem 0;
+    letter-spacing: 0.05em;
+}
+
+/* ===== Trending Stories ===== */
+.trending {
+    padding: 3.5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.75rem;
+}
+
+.trending-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.trending-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.trending-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.trending-content {
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.trending-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.6rem 0;
+    line-height: 1.3;
+}
+
+.trending-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+}
+
+.trending-card a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    transition: color var(--transition);
+    align-self: flex-start;
+}
+
+.trending-card a:hover {
+    color: var(--accent-hover);
+}
+
+@media (max-width: 768px) {
+    .trending-card {
+        grid-template-columns: 1fr;
+    }
+    .trending-img {
+        height: 200px;
+    }
+}
+
+/* Dropdown (if used) */
+.has-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.has-dropdown .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-sm);
+    min-width: 260px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    z-index: 999;
+}
+.has-dropdown .dropdown a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-soft);
+    text-decoration: none;
+    transition: background var(--transition);
+}
+.has-dropdown .dropdown a:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+.has-dropdown:hover .dropdown {
+    display: block;
+}
+@media (max-width: 700px) {
+    .has-dropdown .dropdown {
+        position: static;
+        display: none;
+    }
+    .has-dropdown.open .dropdown {
+        display: block;
+    }
+}
+
+/* ===== Featured / News Grid ===== */
+.featured {
+    margin: 2rem auto;
+    max-width: 1100px;
+    position: relative;
+}
+
+.featured img {
+    width: 100%;
+    border-radius: var(--radius);
+    transition: transform var(--transition);
+}
+
+.featured img:hover {
+    transform: scale(1.02);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 1.5rem 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    color: #fff;
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+.news-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1rem 1rem 0.5rem;
+    color: var(--text);
+    line-height: 1.35;
+}
+
+.news-card p {
+    margin: 0 1rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* ===== Art Section ===== */
+.art-section {
+    padding: 3.5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.art-section h2 {
+    margin-bottom: 1.75rem;
+}
+
+.art-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+body.home .art-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.9rem;
+}
+
+body.home .art-grid img {
+    height: 130px;
+}
+
+@media (max-width: 600px) {
+    body.home .art-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    body.home .art-grid img {
+        height: 100px;
+    }
+}
+
+.art-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+    cursor: pointer;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.art-grid img:hover {
+    transform: scale(1.04);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ===== Modal / Lightbox ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    animation: modalFade 0.25s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.modal-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    color: var(--text);
+    font-size: 2rem;
+    font-weight: 300;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 10000;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: color var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--accent);
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content img {
+        max-height: 80vh;
+    }
+    .modal-close {
+        top: -2rem;
+        font-size: 1.75rem;
+    }
+}
+
+/* ===== Footer ===== */
+footer {
+    background: var(--bg-elevated);
+    color: var(--text-soft);
+    text-align: center;
+    padding: 1.75rem 1.5rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== Content (About, Contact, etc.) ===== */
+.content {
+    max-width: 720px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem 3rem;
+    line-height: 1.7;
+}
+
+.content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    text-align: left;
+}
+
+.content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-soft);
+}
+
+.content p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.content ul:not(.social-list) {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.content ul:not(.social-list) li {
+    margin-bottom: 0.5rem;
+    color: var(--muted);
+}
+
+.content ul.contact-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content ul.contact-list li {
+    margin-bottom: 0.75rem;
+}
+
+.content ul.contact-list a {
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 0;
+    min-height: 44px;
+    line-height: 1.5;
+    transition: color var(--transition);
+}
+
+.content ul.contact-list a:hover {
+    color: var(--accent-hover);
+}
+
+.contact-label {
+    display: inline-block;
+    min-width: 4.5rem;
+    color: var(--text-soft);
+}
+
+.content-error {
+    text-align: center;
+    color: var(--muted);
+    padding: 2rem 1rem;
+}
+
+.content-error code {
+    background: var(--bg-elevated);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.social-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.social-list li a {
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    transition: background var(--transition), color var(--transition);
+}
+
+.social-list li a:hover {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+/* ===== Mobile: General improvements ===== */
+@media (max-width: 768px) {
+    .trending,
+    .art-section {
+        padding: 2rem 1rem;
+    }
+
+    .trending-card a,
+    .news-card a {
+        display: inline-block;
+        padding: 0.5rem 0;
+        min-height: 44px;
+        line-height: 1.4;
+    }
+
+    .news-grid {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+        gap: 1.25rem;
+    }
+
+    .content {
+        padding: 1.5rem 1rem 2.5rem;
+    }
+
+    .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .content h3 {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+    }
+
+    .social-list {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .social-list li a {
+        display: block;
+        text-align: center;
+        padding: 0.85rem 1rem;
+        min-height: 48px;
+        line-height: 1.4;
+    }
+
+    .modal {
+        padding: 1rem;
+    }
+
+    .modal-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.5rem;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    footer {
+        padding: 1.25rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header::before {
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    .trending-grid {
+        gap: 1.25rem;
+    }
+
+    .trending-content {
+        padding: 1.25rem 1rem;
+    }
+
+    .trending-card h3 {
+        font-size: 1.2rem;
+    }
+}
